@@ -19,11 +19,15 @@ feature "UserLogins" do
     it "should take them to dashbaord" do
       visit root_path
     end
-    it "should show thier name" do
+    it "should show thier name and sign out link" do
       login
-      within("#navbar_header") do
+      within("#drop_username") do
         page.should have_content(user.name)
-        page.should have_no_content(translate(:devise, :sessions, :sign_in))
+      end
+      find_button(user.name).click
+      within(".dropdown-menu") do
+        page.should have_content(translate(:devise, :sessions, :sign_out))
+        page.should have_content("Setting")
       end
     end
   end
