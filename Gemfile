@@ -13,13 +13,21 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
+gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
 
 group :development do
   gem 'spring'
   gem "slim-rails"
-  gem "pry"
 end
 
 group :development, :test do
+  gem "pry"
   gem 'rspec-rails', '~> 3.0.0'
+end
+
+group :test do
+gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'capybara-webkit'
 end
