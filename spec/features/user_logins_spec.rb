@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature "UserLogins" do
   def login
-    binding.pry
     visit new_user_session_path
     fill_in translate(:activerecord, :attributes, :user, :email), with: user.email
     fill_in translate(:activerecord, :attributes, :user, :password), with: "secret_password"
