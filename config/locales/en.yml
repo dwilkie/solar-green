@@ -5,3 +5,5 @@ en:
         email: "Email"
         password: "Password"
       # will translate User attribute "login" as "Handle"
+  actions:
+    new: "New"

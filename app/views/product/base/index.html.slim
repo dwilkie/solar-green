@@ -1,0 +1,28 @@
+.row
+  .col-md-6
+    .page-header
+      h3 PRODUCTS
+    table.table.table-bordered
+      thead
+        tr
+          th #
+          th Name
+          th Type
+          th Description
+          th Action
+      tbody#product_list
+      -collection.each do |product|
+        tr
+          td=product.id
+          td=link_to product.name, polymorphic_path(product)
+          td=product.class.model_name.human
+          td=product.description
+          td
+            =link_to "Edit", edit_polymorphic_path(product)
+            =link_to "Delete", polymorphic_path(product), method: :delete, data: { confirm: "Are you sure to delete this ?"}
+  .col-md-4
+    .pull-right
+        button.btn.btn-default.dropdown-toggle#new_product data-toggle="dropdown" = I18n.t("actions.new")
+        ul.dropdown-menu aria-labelledby="new_product"
+          -Product::Base::TYPES.each do |type|
+            li = link_to type.model_name.human, new_polymorphic_path(type)

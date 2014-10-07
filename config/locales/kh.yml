@@ -1,0 +1,21 @@
+kh:
+  activerecord:
+    attributes:
+      user:
+        email: អ៊ីមែល
+        password: "ពាក្រសំងាត់"
+        remember_me: ចងចាំខ្ញំុពេលក្រោយ
+      # will translate User attribute "login" as "Handle"
+    models:
+      product/solar: "សឡា"
+      product/battery: "អាគុយ"
+  actions:
+    new: "បង្កើតថ្មី"
+  devise:
+    sessions:
+      sign_out: ចាកចេញ
+      sign_in: យល់ព្រម
+      signed_in: "លោកអ្នកមានសិទ្ធគ្រប់គ្រានក្នុងការគ្រុមប្រព័ន្ធ"
+    failure:
+      user:
+        unauthenticated: "សូមមេត្តាវាយបញ្ចូល អ៊ីមែល និង ពាក្រសំងាត់ដើម្បីចូលគ្រប់គរងប្រព័ន្ធ"

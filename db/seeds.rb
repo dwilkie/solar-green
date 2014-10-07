@@ -5,4 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-rUser.where( email: "solar_thida@yahoo.com").first_or_create!(name: "Thida", phone: "099 999 999", admin: true, password: "solar_green")
+User.where( email: "solar_thida@yahoo.com").first_or_create!(name: "Thida", phone: "099 999 999", admin: true, password: "solar_green")
+Product::Solar.first_or_create!( description: "Goog product from china !", name: "Solar 400GW")

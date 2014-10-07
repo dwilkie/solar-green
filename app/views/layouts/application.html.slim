@@ -12,14 +12,16 @@ html
           .pull-right
             .btn-group.user_name
               -if user_signed_in?
-                button.btn.btn-default.dropdown-toggle#drop_username data-toggle="dropdown"  = current_user.name
+                button.btn.btn-success.dropdown-toggle#drop_username data-toggle="dropdown"  = current_user.name
                 ul.dropdown-menu.pull-right aria-labelledby="drop_username"
                   -if current_user.admin?
                   li = link_to (fa_icon "gear", text: "Setting"), root_path
                   li.divider
                   li = link_to I18n.t('devise.sessions.sign_out'), destroy_user_session_path, method: :delete
           .navbar-header
-            a.navbar-brand href="/" Solar Green Energy Cambodia
+            a.navbar-brand href="/"
+              .hidden-xs.hidden-sm Solar Green Energy Cambodia
+              .visible-sm.visible-xs.text-success Solar Green Energy Cambodia
             button.navbar-toggle.collapsed data-toggle="collapse" data-target="#navbar-collapse"
               .sr-only Toggle navigation
               .icon-bar
@@ -27,10 +29,22 @@ html
               .icon-bar
           .collapse.navbar-collapse#navbar-collapse
             ul.nav.navbar-nav
-              li: a href="#" Products
+              li= link_to "Products", product_base_index_path
               li: a href="#" Customers
               li: a href="#" Sold
               li: a href="#" Peoples
               li: a href="#" Branchs
     .container-fluid.full-height
+      .row
+        .col-md-6.col-sm-6.col-md-offset-3
+          -if notice
+            .alert.alert-success
+              .close.fa.fa-times.pull-right.btn.btn-xs data-dismiss="alert"
+              .text-center= notice
+          -if alert
+            .alert.alert-danger
+              .close.pull-right.btn.btn-xs.fa.fa-times data-dismiss="alert"
+              .text-center= alert
       = yield
+    javascript:
+      $(".alert").alert()

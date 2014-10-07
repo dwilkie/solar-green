@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+  namespace :product do
+    resources :base, only: :index
+    resources :solars
+    resources :batteries
+  end
+
   root  'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
