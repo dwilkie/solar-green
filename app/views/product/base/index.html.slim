@@ -18,8 +18,11 @@
           td=product.class.model_name.human
           td=product.description
           td
-            =link_to "Edit", edit_polymorphic_path(product)
-            =link_to "Delete", polymorphic_path(product), method: :delete, data: { confirm: "Are you sure to delete this ?"}
+            .btn-toolbar
+              .btn-group
+                =link_to "Edit", edit_polymorphic_path(product), class: " btn btn-default btn-xs"
+              .btn-group
+                =link_to "Delete", polymorphic_path(product), method: :delete, data: { confirm: "Are you sure to delete this ?"} , class: " btn btn-default btn-xs"
   .col-md-4
     .pull-right
         button.btn.btn-default.dropdown-toggle#new_product data-toggle="dropdown" = I18n.t("actions.new")

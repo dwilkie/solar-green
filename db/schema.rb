@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20141003070935) do
     t.text    "description"
     t.integer "power_rating"
     t.integer "voltage"
-    t.integer "amps"
+    t.integer "current"
   end
 
   create_table "users", force: true do |t|

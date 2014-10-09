@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration
         t.text  :description
         t.integer :power_rating
         t.integer :voltage
-        t.integer :amps
+        t.integer :current
       end
   end
 end

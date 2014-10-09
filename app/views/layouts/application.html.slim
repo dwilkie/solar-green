@@ -38,13 +38,17 @@ html
       .row
         .col-md-6.col-sm-6.col-md-offset-3
           -if notice
-            .alert.alert-success
+            .alert.alert-success#notice
               .close.fa.fa-times.pull-right.btn.btn-xs data-dismiss="alert"
               .text-center= notice
           -if alert
-            .alert.alert-danger
+            .alert.alert-danger#alert
               .close.pull-right.btn.btn-xs.fa.fa-times data-dismiss="alert"
               .text-center= alert
       = yield
     javascript:
       $(".alert").alert()
+
+      $("#notice").fadeOut(5000)
+
+
