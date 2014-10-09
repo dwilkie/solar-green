@@ -17,6 +17,7 @@ gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 
 gem "font-awesome-rails"
 gem "validates_lengths_from_database"
 gem 'inherited_resources'
+gem 'unicorn'
 
 group :development do
   gem 'spring'
@@ -29,10 +30,14 @@ group :development, :test do
 end
 
 group :test do
-gem 'capybara'
+  gem 'capybara'
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'capybara-webkit'
   gem 'shoulda-matchers', require: false
   gem "shoulda"
+end
+
+group :production do
+  gem 'rails_12factor'
 end
