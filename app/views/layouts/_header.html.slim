@@ -1,0 +1,32 @@
+-if user_signed_in?
+  .navbar.navbar-default@navigation
+    .container-fluid
+      .pull-right
+        .btn-group.user_name
+          -if user_signed_in?
+            button.btn.btn-success.dropdown-toggle#drop_username data-toggle="dropdown"  = current_user.name
+            ul.dropdown-menu.pull-right aria-labelledby="drop_username"
+              -if current_user.admin?
+              li = link_to (fa_icon "gear", text: "Setting"), root_path
+              li.divider
+              li = link_to I18n.t('devise.sessions.sign_out'), destroy_user_session_path, method: :delete
+      .navbar-header
+        a.navbar-brand href="/"
+          .hidden-xs.hidden-sm Solar Green Energy Cambodia
+          .visible-sm.visible-xs.text-success Solar Green Energy Cambodia
+        button.navbar-toggle.collapsed data-toggle="collapse" data-target="#navbar-collapse"
+          .sr-only Toggle navigation
+          .icon-bar
+          .icon-bar
+          .icon-bar
+      .collapse.navbar-collapse#navbar-collapse
+        ul.nav.navbar-nav
+          li.dropdown.dropdown-hover
+            =link_to "Products", product_base_index_path
+            ul.dropdown-menu.dropdown-menu-hover role="menu"
+              -Product::Base::TYPES.each do |type|
+                li = link_to type.model_name.human, polymorphic_path(type)
+          li: a href="#" Customers
+          li: a href="#" Sold
+          li: a href="#" Peoples
+          li: a href="#" Branchs
