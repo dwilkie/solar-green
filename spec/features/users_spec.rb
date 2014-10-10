@@ -22,7 +22,7 @@ feature "User" do
         page.should have_content(user.name)
       end
       find_button(user.name).click
-      within(".dropdown-menu") do
+      within("#user_option") do
         page.should have_content(translate(:devise, :sessions, :sign_out))
         page.should have_content("Setting")
       end

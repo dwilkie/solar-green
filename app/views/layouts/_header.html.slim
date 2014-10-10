@@ -5,7 +5,7 @@
         .btn-group.user_name
           -if user_signed_in?
             button.btn.btn-success.dropdown-toggle#drop_username data-toggle="dropdown"  = current_user.name
-            ul.dropdown-menu.pull-right aria-labelledby="drop_username"
+            ul#user_option.dropdown-menu.pull-right aria-labelledby="drop_username"
               -if current_user.admin?
               li = link_to (fa_icon "gear", text: "Setting"), root_path
               li.divider
