@@ -26,5 +26,5 @@
     .pull-right
         button.btn.btn-default.dropdown-toggle#new_product data-toggle="dropdown" = I18n.t("actions.new")
         ul.dropdown-menu aria-labelledby="new_product"
-          -Product::Base::TYPES.each do |type|
+          - Product::Base.types.each do |type|
             li = link_to type.model_name.human, new_polymorphic_path(type)

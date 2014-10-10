@@ -24,7 +24,7 @@
           li.dropdown.dropdown-hover
             =link_to "Products", product_base_index_path
             ul.dropdown-menu.dropdown-menu-hover role="menu"
-              -Product::Base::TYPES.each do |type|
+              - Product::Base.types.each do |type|
                 li = link_to type.model_name.human, polymorphic_path(type)
           li: a href="#" Customers
           li: a href="#" Sold
