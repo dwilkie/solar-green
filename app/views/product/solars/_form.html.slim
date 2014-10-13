@@ -2,4 +2,9 @@
   =f.input :name
   =f.input :power_rating
   =f.input :description
-  =f.submit class: "btn btn-primary"
+  .btn-toolbar
+    .btn-group
+      =f.submit class: "btn btn-primary"
+    .btn-group
+      = link_to "Back", product_base_index_path, class: "btn btn-default"
+

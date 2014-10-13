@@ -6,6 +6,8 @@ en:
         password: "Password"
       product/battery:
         current: "Current (A)"
+      product/charge_controller:
+        current: "Current (A)"
       # will translate User attribute "login" as "Handle"
   actions:
     new: "New"

@@ -35,6 +35,8 @@ feature "Product" do
       end
       it "should product info" do
         page.should have_content(solar_product.name)
+        page.should have_content(solar_product.power_rating)
+        page.should have_content(solar_product.description)
       end
     end
 

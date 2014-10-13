@@ -6,6 +6,8 @@ FactoryGirl.define do
     end
     factory(:battery, class: Product::Battery) do
       voltage "12"
+      current "1200"
     end
+    description "Good product !!!"
   end
 end

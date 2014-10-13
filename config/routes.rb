@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :base, only: :index
     resources :solars
     resources :batteries
+    resources :charge_controllers
+    resources :grid_ties
   end
 
   root  'home#index'

@@ -16,6 +16,5 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-$(functio)
 $(".alert").alert()
 $("#notice").fadeOut(5000)

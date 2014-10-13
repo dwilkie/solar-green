@@ -1,3 +1,3 @@
 class Product::Battery < Product::Base
-  validates :voltage, presence: true
+  validates :voltage, :current, presence: true
 end
