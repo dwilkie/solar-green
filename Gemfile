@@ -26,14 +26,13 @@ end
 
 group :development, :test do
   gem "pry"
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails'
 end
 
 group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'factory_girl_rails'
-  gem 'capybara-webkit'
   gem 'shoulda-matchers', require: false
   gem "shoulda"
 end
