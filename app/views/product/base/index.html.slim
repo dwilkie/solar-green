@@ -5,7 +5,7 @@
       .dropdown
         button.btn.btn-default.btn-sm.dropdown-toggle  type="button" id="dropdownMenu1" data-toggle="dropdown" = I18n.t("actions.new")
         ul.dropdown-menu role="menu" aria-labelledby="dropdownMenu1"
-          -Product::Base::TYPES.each do |type|
+          -Product::Base.types.each do |type|
             li = link_to type.model_name.human, new_polymorphic_path(type)
 
     table.table.table-bordered
