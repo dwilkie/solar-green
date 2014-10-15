@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :batteries
     resources :charge_controllers
     resources :grid_ties
+    resources :pv_inverter_pumps
   end
 
   root  'home#index'
