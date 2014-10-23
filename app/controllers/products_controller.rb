@@ -3,6 +3,4 @@ class ProductsController < ApplicationController
     @products = Product::Base.all
   end
 
-  def new
-  end
 end

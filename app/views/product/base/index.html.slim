@@ -15,6 +15,9 @@
           th Name
           th Type
           th Description
+          th Stock
+          th Unit Price
+          th Final Unit Price
           th Action
       tbody#product_list
       -collection.each do |product|
@@ -23,10 +26,13 @@
           td=link_to product.name, polymorphic_path(product)
           td=product.class.model_name.human
           td=product.description
+          td=product.stock
+          td=product.unit_price
+          td=product.final_unit_price
           td
             .btn-toolbar
               .btn-group
-                =link_to "Edit", edit_polymorphic_path(product), class: " btn btn-default btn-xs"
+                =link_to fa_icon("pencil-square"), edit_polymorphic_path(product), class: " btn btn-warning btn-xs "
               .btn-group
-                =link_to "Delete", polymorphic_path(product), method: :delete, data: { confirm: "Are you sure to delete this ?"} , class: " btn btn-default btn-xs"
+                =link_to fa_icon("trash"), polymorphic_path(product), method: :delete, data: { confirm: "Are you sure to delete this ?"} , class: " btn btn-danger btn-xs "
 

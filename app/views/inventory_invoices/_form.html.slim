@@ -1,0 +1,36 @@
+.row
+  .col-md-12
+    =simple_nested_form_for(resource) do |f|
+      =f.error_notification
+      .row
+        .col-md-6
+          =f.input :number
+        .col-md-6
+          =f.input :date, as: :string, input_html: { class: "date-picker" }
+      =f.simple_fields_for(:inventory_invoice_line_items) do |line_item_fields|
+        .row
+          .col-md-3
+            =line_item_fields.association :product
+          .col-md-3
+            =line_item_fields.input :quantity
+          .col-md-3
+            =line_item_fields.input :unit_price
+          .col-md-3
+            =line_item_fields.input :final_unit_price
+            =line_item_fields.link_to_remove "Remove", class: "btn btn-xs btn-danger pull-right", style: " margin-top: -12px;"
+      .row
+        .col-md-12
+            =f.link_to_add "Add more inventory", :inventory_invoice_line_items, class: "btn btn-info btn-xs"
+      .row
+        .col-md-4
+          =f.input :shipping_cost
+        .col-md-4
+          =f.input :vat
+        .col-md-4
+          =f.input :other_cost
+          .btn-toolbar
+            .btn-group
+              =f.submit class: "btn btn-primary"
+            .btn-group
+              = link_to "Back", :back, class: "btn btn-default"
+

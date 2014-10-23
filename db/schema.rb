@@ -11,10 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141003070935) do
+ActiveRecord::Schema.define(version: 20141019080929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "inventory_invoice_line_items", force: true do |t|
+    t.integer  "inventory_invoice_id", null: false
+    t.integer  "product_id",           null: false
+    t.integer  "quantity",             null: false
+    t.integer  "unit_price",           null: false
+    t.integer  "final_unit_price",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "inventory_invoices", force: true do |t|
+    t.integer  "shipping_cost",             null: false
+    t.integer  "vat",                       null: false
+    t.integer  "other_cost",    default: 0, null: false
+    t.string   "number"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "inventory_line_items", force: true do |t|
+    t.integer  "inventory_invoice_line_item_id",                      null: false
+    t.integer  "product_id",                                          null: false
+    t.integer  "unit_price",                                          null: false
+    t.integer  "final_unit_price",                                    null: false
+    t.string   "state",                          default: "in_stock", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "products", force: true do |t|
     t.string  "name",         null: false

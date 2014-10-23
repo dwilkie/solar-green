@@ -18,6 +18,10 @@ gem "font-awesome-rails"
 gem "validates_lengths_from_database"
 gem 'inherited_resources'
 gem 'unicorn'
+gem 'momentjs-rails', '>= 2.8.1'
+gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
+gem "nested_form"
+
 
 group :development do
   gem 'spring'

@@ -1,0 +1,31 @@
+.row
+  .col-md-5
+    h3.page-header Inventory Invoices
+    .pull-right.button-on-table
+      =link_to I18n.t("actions.new"), new_inventory_invoice_path, class: "btn btn-sm btn-default"
+
+    table.table.table-bordered
+      thead
+        tr
+          th #
+          th Number
+          th Date
+          th Total
+          th Action
+      tbody#inventory_invoices
+      -collection.each do |inventory_invoice|
+        tr
+          td
+            =inventory_invoice.id
+          td
+            =inventory_invoice.number
+          td
+            =inventory_invoice.date
+          td
+            = "Total"
+          td
+            .btn-toolbar
+              / .btn-group
+              /   =link_to "Edit", edit_inventory_invoice_path(inventory_invoice), class: " btn btn-default btn-xs"
+              .btn-group
+                =link_to fa_icon("trash"), inventory_invoice_path(inventory_invoice), method: :delete, data: { confirm: "Are you sure to delete this ?"} , class: " btn btn-danger btn-xs"

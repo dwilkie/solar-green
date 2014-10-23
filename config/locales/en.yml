@@ -1,4 +1,7 @@
 en:
+  errors:
+    messages:
+      greater_than_or_equal_to_unit_price: "must be greater than or equal to unit price"
   activerecord:
     attributes:
       user:

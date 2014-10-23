@@ -13,6 +13,7 @@ feature "User" do
 
     it "should have a link to product index" do
       within(".navbar-nav") do
+        page.should have_content("Inventory Invoice")
         page.should have_content("Products")
       end
     end

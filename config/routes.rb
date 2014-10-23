@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :pv_inverter_pumps
   end
 
+  resources :inventory_invoices
+
   root  'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

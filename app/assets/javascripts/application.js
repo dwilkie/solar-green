@@ -14,7 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
+//= require jquery_nested_form
 //= require_tree .
 
 $(".alert").alert()
 $("#notice").fadeOut(5000)
+$(function () { $('.date-picker').datetimepicker({
+    pickTime: false
+  })
+});
+
+$(function () { $('.date-time-picker').datetimepicker({ })});

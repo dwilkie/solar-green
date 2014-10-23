@@ -23,10 +23,7 @@ feature "Product" do
     it "should show a list of product with actions" do
       page.should have_content(solar_product.name)
       page.should have_content(translate(:actions, :new))
-      page.should have_link("Edit", href: edit_product_solar_path(solar_product))
-      page.should have_link("Edit", href: edit_product_battery_path(battery_product))
       page.should have_link(solar_product.name, href: product_solar_path(solar_product))
-      page.should have_link("Edit", href: edit_product_battery_path(battery_product))
     end
 
     context "given visited product/:type/:id" do
