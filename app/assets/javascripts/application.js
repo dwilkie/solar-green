@@ -21,9 +21,5 @@
 
 $(".alert").alert()
 $("#notice").fadeOut(5000)
-$(function () { $('.date-picker').datetimepicker({
-    pickTime: false
-  })
-});
-
+$(function () { $('.date-picker').datetimepicker({ pickTime: false }) });
 $(function () { $('.date-time-picker').datetimepicker({ })});
