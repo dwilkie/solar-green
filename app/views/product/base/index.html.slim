@@ -1,24 +1,35 @@
 .row
-  .col-md-6
-    h3.page-header Product
-    .pull-right.button-on-table
-      .dropdown
-        button.btn.btn-default.btn-sm.dropdown-toggle  type="button" id="dropdownMenu1" data-toggle="dropdown" = I18n.t("actions.new")
-        ul.dropdown-menu role="menu" aria-labelledby="dropdownMenu1"
-          -Product::Base.types.each do |type|
-            li = link_to type.model_name.human, new_polymorphic_path(type)
-
+  .col-md-12
+    h3.page-header
+      =page_title
+      .pull-right.button-on-table
+        -if collection.model_name.human == Product::Base.model_name.human
+          .dropdown
+            button.btn.btn-default.btn-sm.dropdown-toggle  type="button" id="dropdownMenu1" data-toggle="dropdown" = I18n.t("actions.new")
+            ul.dropdown-menu role="menu" aria-labelledby="dropdownMenu1"
+              -Product::Base.types.each do |type|
+                li = link_to type.model_name.human, new_polymorphic_path(type)
+        -else
+          =link_to t('.new'), new_polymorphic_path(collection.klass), class: "btn btn-default btn-sm"
     table.table.table-bordered
       thead
         tr
-          th #
-          th Name
-          th Type
-          th Description
-          th Stock
-          th Unit Price
-          th Final Unit Price
-          th Action
+          th
+            =t'.number'
+          th
+            =t'.name'
+          th
+            =t('.type')
+          th
+            =t('.description')
+          th
+            =t('.stock')
+          th
+            =t('.unit_price')
+          th
+            =t('.final_unit_price')
+          th
+            =t('.action')
       tbody#product_list
       -collection.each do |product|
         tr
@@ -32,7 +43,7 @@
           td
             .btn-toolbar
               .btn-group
-                =link_to fa_icon("pencil-square"), edit_polymorphic_path(product), class: " btn btn-warning btn-xs "
+                =link_to fa_icon("pencil-square"), edit_polymorphic_path(product), class: " btn btn-default btn-xs "
               .btn-group
-                =link_to fa_icon("trash"), polymorphic_path(product), method: :delete, data: { confirm: "Are you sure to delete this ?"} , class: " btn btn-danger btn-xs "
+                =link_to fa_icon("trash"), polymorphic_path(product), method: :delete, data: { confirm: "Are you sure to delete this ?"} , class: " btn btn-default btn-xs "
 

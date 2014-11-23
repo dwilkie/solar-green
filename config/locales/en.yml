@@ -1,4 +1,58 @@
 en:
+  hash: "#"
+  name: "Name"
+  number: "Number"
+  date: "Date"
+  total: "Total"
+  action: "Action"
+  title:
+    default: "All Products"
+    solars:
+      index: "Solars"
+      new: "New Solar"
+      edit: "Edit %{solar}"
+      show: "%{solar}"
+    batteries:
+      index: "Batteries"
+      new: "New Battery"
+      edit: "Edit %{battery} "
+      show: "%{battery}"
+    charge_controllers:
+      index: "Charge Controllers"
+      new: "New Charge Controller"
+      edit: "Edit %{charge_controller}"
+      show: "%{charge_controller}"
+    grid_ties:
+      index: "Grid Ties"
+      new: "New Grid Ties"
+      edit: "Edit %{grid_ty}"
+      show: "%{grid_ty}"
+    pv_inverter_pumps:
+      index: "PV Inverter Pumps"
+      new: "New PV Inverter Pumps"
+      edit: "Edit %{pv_inverter_pump}"
+      show: "%{pv_inverter_pump}"
+      form:
+        back: "Back"
+    inventory_invoices:
+      index: "Inventory Invoices"
+      new: "New Inventory Invoice"
+      edit: "Edit %{inventory_invoice}"
+  product:
+    base:
+      index:
+        title: 'All product'
+        number: '#'
+        name: 'Name'
+        type: 'Type'
+        description: 'Description'
+        stock: 'Stock'
+        unit_price: 'Unit Price'
+        final_unit_price: 'Final Unit Price'
+        action: 'Action'
+        new: "New"
+      new:
+        new: 'New product'
   errors:
     messages:
       greater_than_or_equal_to_unit_price: "must be greater than or equal to unit price"

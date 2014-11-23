@@ -23,4 +23,8 @@ class Product::Base < ActiveRecord::Base
   def final_unit_price
     inventory_line_items.in_stock.average(:final_unit_price)
   end
+
+  def to_s
+    name
+  end
 end
