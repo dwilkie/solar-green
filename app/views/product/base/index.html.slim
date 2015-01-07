@@ -2,11 +2,11 @@
   .col-md-12
     h3.page-header
       =page_title
-      .pull-right.button-on-table
+      .pull-right
         -if collection.model_name.human == Product::Base.model_name.human
-          .dropdown
-            button.btn.btn-default.btn-sm.dropdown-toggle  type="button" id="dropdownMenu1" data-toggle="dropdown" = I18n.t("actions.new")
-            ul.dropdown-menu role="menu" aria-labelledby="dropdownMenu1"
+          .btn-group
+            button.btn.btn-default.btn-sm.dropdown-toggle#dropdown_product data-toggle="dropdown" = I18n.t("actions.new")
+            ul.dropdown-menu.pull-right aria-labelledby="dropdown_product"
               -Product::Base.types.each do |type|
                 li = link_to type.model_name.human, new_polymorphic_path(type)
         -else
@@ -24,6 +24,8 @@
             =t('.description')
           th
             =t('.stock')
+          th Inventory
+          th Inventory line items
           th
             =t('.unit_price')
           th
@@ -38,12 +40,12 @@
           td=product.class.model_name.human
           td=product.description
           td=product.stock
+          td=link_to "Inventory", product_inventory_line_items_path(product)
+          td=link_to "Inventory Line Item", product_inventory_invoice_line_items_path(product)
           td=product.unit_price
           td=product.final_unit_price
           td
-            .btn-toolbar
-              .btn-group
-                =link_to fa_icon("pencil-square"), edit_polymorphic_path(product), class: " btn btn-default btn-xs "
-              .btn-group
-                =link_to fa_icon("trash"), polymorphic_path(product), method: :delete, data: { confirm: "Are you sure to delete this ?"} , class: " btn btn-default btn-xs "
+            .btn-group
+              =link_to fa_icon("pencil-square"), edit_polymorphic_path(product), class: " btn btn-default btn-xs "
+              =link_to fa_icon("trash"), polymorphic_path(product), method: :delete, data: { confirm: "Are you sure to delete this ?"} , class: " btn btn-default btn-xs "
 

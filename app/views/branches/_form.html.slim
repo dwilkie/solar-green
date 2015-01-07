@@ -1,0 +1,26 @@
+=simple_nested_form_for(resource) do |f|
+  .row
+    .col-md-12
+      =f.input :name
+  legend= t('Address')
+  .row
+    =f.simple_fields_for :address do |address|
+      .col-md-3
+        =address.input :home_number
+      .col-md-3
+        =address.input :street
+      .col-md-3
+        =address.input :group
+      .col-md-3
+        =address.input :quartier
+      .col-md-3
+        =address.input :district
+      .col-md-3
+        =address.input :city
+  .row
+    .col-md-12
+      .btn-toolbar
+        .btn-group
+          =f.submit class: "btn btn-primary"
+        .btn-group
+          = link_to "Back", branches_path, class: "btn btn-default"

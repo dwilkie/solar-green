@@ -1,0 +1,14 @@
+table.table.table-bordered
+  thead
+    tr
+      th Product
+      th Quantity
+      th Unit Price
+      th Inventory
+  tbody#inventory
+  -collection.each do |inventory_line_item|
+    tr
+      td=link_to inventory_line_item.product.name, polymorphic_path(inventory_line_item.product)
+      td=inventory_line_item.quantity
+      td=inventory_line_item.unit_price
+      td=link_to "Inventory", inventory_invoice_line_item_inventory_line_items_path(inventory_line_item)

@@ -1,31 +1,6 @@
 .row
-  .col-md-5
+  .col-md-12
     h3.page-header= page_title
     .pull-right.button-on-table
       =link_to I18n.t("actions.new"), new_inventory_invoice_path, class: "btn btn-sm btn-default"
-
-    table.table.table-bordered
-      thead
-        tr
-          th=t('hash')
-          th=t('number')
-          th=t('date')
-          th=t('total')
-          th=t('action')
-      tbody#inventory_invoices
-      -collection.each do |inventory_invoice|
-        tr
-          td
-            =inventory_invoice.id
-          td
-            =inventory_invoice.number
-          td
-            =inventory_invoice.date
-          td
-
-          td
-            .btn-toolbar
-              / .btn-group
-              /   =link_to "Edit", edit_inventory_invoice_path(inventory_invoice), class: " btn btn-default btn-xs"
-              .btn-group
-                =link_to fa_icon("trash"), inventory_invoice_path(inventory_invoice), method: :delete, data: { confirm: "Are you sure to delete this ?"} , class: " btn btn-default btn-xs"
+    =datagrid_table(@grid, html:{class: 'table'})

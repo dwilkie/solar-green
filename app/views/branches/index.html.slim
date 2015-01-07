@@ -1,0 +1,9 @@
+
+.row
+  .col-md-12
+h3.page-header
+  =page_title
+  .pull-right.button-on-table
+    =link_to t('.new'), new_branch_path, class: "btn btn-default btn-sm"
+=datagrid_table(@grid, html: {class: 'table'})
+=will_paginate(@grid.assets)

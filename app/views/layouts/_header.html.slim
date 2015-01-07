@@ -4,7 +4,9 @@
       .pull-right
         .btn-group.user_name
           -if user_signed_in?
-            button.btn.btn-success.dropdown-toggle#drop_username data-toggle="dropdown"  = current_user.name
+            button.btn.btn-success.dropdown-toggle#drop_username data-toggle="dropdown"
+              = current_user.to_s
+              i.caret
             ul#user_option.dropdown-menu.pull-right aria-labelledby="drop_username"
               -if current_user.admin?
               li = link_to (fa_icon "gear", text: "Setting"), root_path
@@ -28,5 +30,8 @@
                 li = link_to type.model_name.human, polymorphic_path(type)
           li
             =link_to "Inventory Invoice", inventory_invoices_path
-          li: a href="#" Peoples
-          li: a href="#" Branchs
+          li.dropdown.dropdown-hover
+            =link_to "Configuration", configurations_path
+            ul.dropdown-menu.dropdown-menu-hover role="menu"
+              li=link_to "Branches", branches_path
+              li=link_to "Peoples", users_path

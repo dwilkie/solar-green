@@ -1,0 +1,13 @@
+table.table.table-bordered
+  thead
+    tr
+      th Product
+      th Unit Price
+      th Amount
+
+  tbody#inventory
+  -collection.group_by_product_and_unit_price.each do |key, value|
+    tr
+      td=key.first
+      td=key.last
+      td=value

@@ -1,0 +1,9 @@
+.row
+  .col-md-12
+    h1.page-header
+      =page_title + " #{resource.to_s}"
+    dl.dl-horizontal
+      dt Name
+      dd=resource.name
+      dt Address
+      dd="#{resource.home_number}, #{resource.street}, #{resource.city}"

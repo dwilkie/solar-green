@@ -4,7 +4,7 @@ class Product::Base < ActiveRecord::Base
 
   has_many :inventory_invoice_line_items, foreign_key: "product_id"
   has_many :inventory_line_items, foreign_key: "product_id"
-
+           InventoryLineItem
   validates_lengths_from_database
   validates :name, presence: true
 

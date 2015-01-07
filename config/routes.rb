@@ -9,6 +9,19 @@ Rails.application.routes.draw do
     resources :pv_inverter_pumps
   end
 
+  resources :products, only: [] do
+    resources :inventory_line_items, only: :index
+    resources :inventory_invoice_line_items, only: :index
+  end
+
+  resources :inventory_invoice_line_items, only: [] do
+    resources :inventory_line_items, only: :index
+  end
+
+  resources :addresses
+  resources :configurations
+  resources :branches
+  resources :users
   resources :inventory_invoices
 
   root  'home#index'

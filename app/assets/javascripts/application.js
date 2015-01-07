@@ -17,9 +17,15 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require jquery_nested_form
+//= require bootstrap-switch.min
 //= require_tree .
 
-$(".alert").alert()
-$("#notice").fadeOut(5000)
-$(function () { $('.date-picker').datetimepicker({ pickTime: false }) });
-$(function () { $('.date-time-picker').datetimepicker({ })});
+$(document).ready(function(){
+  $(".alert").alert()
+  $("#notice").fadeOut(5000)
+})
+
+$(document).on('ready page:change', function() {
+  $('.date-picker').datetimepicker({ pickTime: false });
+  $('.date-time-picker').datetimepicker();
+});

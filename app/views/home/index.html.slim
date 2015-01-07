@@ -1,2 +1,104 @@
-h1 Dashbaord
-p Find me in app/views/home/index.html.slim
+.row
+  .col-md-12
+    h1.page-header
+      =@branch.to_s
+      small
+        =current_user.to_s
+.row
+  .col-md-3
+    .panel.panel-primary
+      .panel-heading
+        .row
+          .col-md-3
+            .fa.fa-th-large.fa-5x
+          .col-md-9.text-right
+            .huge 29
+            div Customers
+
+  .col-md-3
+    .panel.panel-primary
+      .panel-heading
+        .row
+          .col-md-3
+            .fa.fa-cubes.fa-5x
+          .col-md-9.text-right
+            .huge = @inventory.count
+            div Products
+  .col-md-3
+    .panel.panel-primary
+      .panel-heading
+        .row
+          .col-md-3
+            .fa.fa-shopping-cart.fa-5x
+          .col-md-9.text-right
+            .huge 390
+            div Producs been sold
+  .col-md-3
+    .panel.panel-primary
+      .panel-heading
+        .row
+          .col-md-3
+            .fa.fa-group.fa-5x
+          .col-md-9.text-right
+            .huge
+              ="#{@user.count}"
+            div Users
+.row
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        .fa.fa-bar-chart-o.fa-fw
+        | All product
+        .pull-right
+          .btn-group
+            .btn.btn-default.btn-xs.dropdown-toggle data-toggle="dropdown"
+              | Action
+              .caret
+            ul.dropdown-menu.pull-right
+              li
+                a href="#home" New
+      .panel-body
+        .row
+          .col-md-12
+            table.table.table-bordered
+              thead
+                tr
+                  th Number
+                  th Shipping Cost
+                  th Vat
+                  th Other Cost
+                  th Date
+                  th Create By
+                  th
+                    .pull-right Actions
+              tbody
+                -@branch.inventory_invoices.each do |ii|
+                  tr
+                    td
+                      =ii.number
+                    td
+                      =ii.shipping_cost
+                    td
+                      =ii.vat
+                    td
+                      =ii.other_cost
+                    td
+                      =ii.date
+                    td
+                      =ii.user
+                    td
+                      .pull-right
+                        =link_to(fa_icon("trash"), inventory_invoice_path(ii), method: :delete, data: { confirm: "Are you sure to delete this ?"} , class: " btn btn-default btn-xs")
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        .fa.fa-bar-chart-o.fa-fw
+        | All product
+        .pull-right
+          .btn-group
+            .btn.btn-default.btn-xs.dropdown-toggle data-toggle="dropdown"
+              | Action
+              .caret
+            ul.dropdown-menu.pull-right
+              li
+                a href="#home" New

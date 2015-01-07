@@ -1,0 +1,44 @@
+=simple_form_for(resource) do |f|
+  .row
+    .col-md-12
+      =f.input :name
+  .row
+    .col-md-3
+      =f.input :email
+    .col-md-3
+      =f.input :phone
+    .col-md-3
+      =f.association :branch
+    .col-md-3
+      =f.input :admin, as: :switch_boolean
+  - if action_name == 'new' || 'create'
+    .row
+      .col-md-6
+        =f.input :password, required: true
+      .col-md-6
+        =f.input :password_confirmation, required: true
+  h4.page-header= t('Address')
+  .row
+    =f.simple_fields_for :address do |address|
+      .col-md-2
+        =address.input :home_number
+      .col-md-2
+        =address.input :street
+      .col-md-2
+        =address.input :group
+      .col-md-2
+        =address.input :quartier
+      .col-md-2
+        =address.input :district
+      .col-md-2
+        =address.input :city
+
+  .row
+    .col-md-12
+      .btn-toolbar
+        .btn-group
+          =f.submit class: "btn btn-primary"
+        .btn-group
+          = link_to "Back", users_path, class: "btn btn-default"
+javascript:
+  $(".switch-boolean").bootstrapSwitch();

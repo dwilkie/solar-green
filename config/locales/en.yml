@@ -38,6 +38,12 @@ en:
       index: "Inventory Invoices"
       new: "New Inventory Invoice"
       edit: "Edit %{inventory_invoice}"
+
+    branches:
+      index: "Branches"
+      new: "New Branche"
+      edit: "Edit %{branch}"
+      show: "Branch"
   product:
     base:
       index:

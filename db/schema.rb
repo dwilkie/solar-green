@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019080929) do
+ActiveRecord::Schema.define(version: 20141211040415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: true do |t|
+    t.string  "home_number"
+    t.string  "street"
+    t.string  "group"
+    t.string  "quartier"
+    t.string  "district"
+    t.string  "city"
+    t.string  "country",     default: "Cambodia"
+    t.integer "branch_id"
+    t.integer "user_id"
+  end
+
+  create_table "branches", force: true do |t|
+    t.string "name", null: false
+  end
+
+  add_index "branches", ["name"], name: "index_branches_on_name", unique: true, using: :btree
 
   create_table "inventory_invoice_line_items", force: true do |t|
     t.integer  "inventory_invoice_id", null: false
@@ -34,6 +52,8 @@ ActiveRecord::Schema.define(version: 20141019080929) do
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "branch_id"
   end
 
   create_table "inventory_line_items", force: true do |t|
@@ -71,6 +91,7 @@ ActiveRecord::Schema.define(version: 20141019080929) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "branch_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

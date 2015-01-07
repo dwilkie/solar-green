@@ -2,11 +2,13 @@
   .col-md-12
     =simple_nested_form_for(resource) do |f|
       =f.error_notification
+      =f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+      =f.input :branch_id, as: :hidden, input_html: { value: current_user.branch_id }
       .row
-        .col-md-6
+        .col-md-4
           =f.input :number
-        .col-md-6
-          =f.input :date, as: :string, input_html: { class: "date-picker" }
+        .col-md-4
+          =f.input :date, as: :date_picker, input_html: {"data-date-format" => "DD-MM-YYYY"}
       =f.simple_fields_for(:inventory_invoice_line_items) do |line_item_fields|
         .row
           .col-md-3
@@ -33,4 +35,3 @@
               =f.submit class: "btn btn-primary"
             .btn-group
               = link_to t('.back'), :back, class: "btn btn-default"
-

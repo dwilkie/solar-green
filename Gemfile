@@ -21,7 +21,10 @@ gem 'unicorn'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 gem "nested_form"
-# gem 'title', '~> 0.0.5'
+gem 'draper', '~> 1.3'
+gem 'datagrid'
+gem 'will_paginate'
+gem 'title', '~> 0.0.5'
 
 
 group :development do

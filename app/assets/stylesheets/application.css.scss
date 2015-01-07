@@ -16,6 +16,7 @@
 @import "bootstrap";
 @import "font-awesome";
 @import 'bootstrap-datetimepicker';
+@import 'bootstrap-switch.min';
 
 html,body {
   height: 100%;
@@ -66,3 +67,6 @@ html,body {
 // Navigation menu
 .dropdown-hover:hover .dropdown-menu-hover { display: block; }
 .button-on-table{ margin-bottom: 5px; }
+.huge {
+  font-size: 40px;
+}

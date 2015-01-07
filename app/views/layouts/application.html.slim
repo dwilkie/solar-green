@@ -1,12 +1,17 @@
-DOCTYPE html
+doctype html
 html
   head
     title SolarGreen title
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
   body
     =render partial: "layouts/header"
     .container-fluid.full-height
       =render "layouts/notification"
       = yield
+      .row
+        .footer.page-header
+          .container
+            .text-center &copy;Right 2014 by Solar Green Cambodia

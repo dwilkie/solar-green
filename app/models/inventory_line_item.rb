@@ -8,4 +8,8 @@ class InventoryLineItem < ActiveRecord::Base
     where(state: "in_stock")
   end
 
+  def self.group_by_product_and_unit_price
+    group(:product_id, :unit_price).count
+  end
+
 end
